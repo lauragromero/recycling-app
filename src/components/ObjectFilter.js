@@ -1,5 +1,6 @@
 import React from 'react';
 import Item from './Item';
+import {Link} from 'react-router-dom'
 
 
 
@@ -10,7 +11,7 @@ const ObjectFilter=(props)=>{
     return(
         <ul>
             {props.dataObjects.filter(item=> item.objeto.toLowerCase().includes(value))
-            .map(item=> value === ''? null: <Item key={item.id} name={item.objeto}/>)}
+            .map(item=> value === ''? null:  <Link key={item.id} to={`/detail/${item.id}`}><Item  name={item.objeto}/></Link>)}
         </ul>
     )
 }
